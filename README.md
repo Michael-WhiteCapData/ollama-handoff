@@ -28,22 +28,18 @@ This isn't a generic "wrap the Ollama API" server. Each tool ships with a **bake
 
 ## Install
 
-The fastest path is [`uv`](https://docs.astral.sh/uv/) — no manual venv needed:
+The fastest path is [`uv`](https://docs.astral.sh/uv/) — no manual venv needed. Run straight from the repo:
 
 ```bash
-uvx ollama-handoff      # runs the server directly
+uvx --from git+https://github.com/Michael-WhiteCapData/ollama-handoff ollama-handoff
 ```
 
-Or install it into an environment:
-
-```bash
-pip install ollama-handoff
-```
+> 📦 A PyPI release is on the way; once published, `uvx ollama-handoff` and `pip install ollama-handoff` will work directly.
 
 ### Claude Code
 
 ```bash
-claude mcp add ollama-handoff -- uvx ollama-handoff
+claude mcp add ollama-handoff -- uvx --from git+https://github.com/Michael-WhiteCapData/ollama-handoff ollama-handoff
 ```
 
 ### Claude Desktop / Cursor (`mcp` config block)
@@ -53,7 +49,11 @@ claude mcp add ollama-handoff -- uvx ollama-handoff
   "mcpServers": {
     "ollama-handoff": {
       "command": "uvx",
-      "args": ["ollama-handoff"],
+      "args": [
+        "--from",
+        "git+https://github.com/Michael-WhiteCapData/ollama-handoff",
+        "ollama-handoff"
+      ],
       "env": {
         "OLLAMA_DEFAULT_MODEL": "qwen2.5-coder:14b"
       }
