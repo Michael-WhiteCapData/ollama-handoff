@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.Michael-WhiteCapData/ollama-handoff -->
+
 # ollama-handoff
 
 **An MCP server that offloads cheap work from your cloud LLM agent to a local Ollama model.**

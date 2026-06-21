@@ -10,4 +10,4 @@ from .config import Config
 from .ollama import OllamaClient, OllamaError
 
 __all__ = ["Config", "OllamaClient", "OllamaError", "__version__"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"
