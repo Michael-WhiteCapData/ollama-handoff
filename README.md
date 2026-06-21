@@ -3,6 +3,7 @@
 **An MCP server that offloads cheap work from your cloud LLM agent to a local Ollama model.**
 
 [![CI](https://github.com/Michael-WhiteCapData/ollama-handoff/actions/workflows/ci.yml/badge.svg)](https://github.com/Michael-WhiteCapData/ollama-handoff/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/ollama-handoff?color=3775A9&logo=pypi&logoColor=white)](https://pypi.org/project/ollama-handoff/)
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/MCP-server-D97757)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -28,18 +29,18 @@ This isn't a generic "wrap the Ollama API" server. Each tool ships with a **bake
 
 ## Install
 
-The fastest path is [`uv`](https://docs.astral.sh/uv/) — no manual venv needed. Run straight from the repo:
+The fastest path is [`uv`](https://docs.astral.sh/uv/) — no manual venv needed:
 
 ```bash
-uvx --from git+https://github.com/Michael-WhiteCapData/ollama-handoff ollama-handoff
+uvx ollama-handoff          # run directly
+# or
+pip install ollama-handoff  # then run: ollama-handoff
 ```
-
-> 📦 A PyPI release is on the way; once published, `uvx ollama-handoff` and `pip install ollama-handoff` will work directly.
 
 ### Claude Code
 
 ```bash
-claude mcp add ollama-handoff -- uvx --from git+https://github.com/Michael-WhiteCapData/ollama-handoff ollama-handoff
+claude mcp add ollama-handoff -- uvx ollama-handoff
 ```
 
 ### Claude Desktop / Cursor (`mcp` config block)
@@ -49,11 +50,7 @@ claude mcp add ollama-handoff -- uvx --from git+https://github.com/Michael-White
   "mcpServers": {
     "ollama-handoff": {
       "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/Michael-WhiteCapData/ollama-handoff",
-        "ollama-handoff"
-      ],
+      "args": ["ollama-handoff"],
       "env": {
         "OLLAMA_DEFAULT_MODEL": "qwen2.5-coder:14b"
       }
