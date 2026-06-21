@@ -1,0 +1,50 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.Michael-WhiteCapData/ollama-handoff",
+  "description": "Offload cheap work from your cloud LLM agent to a local Ollama model — summaries, drafts, extractions, first-pass reviews — at zero cloud cost.",
+  "repository": {
+    "url": "https://github.com/Michael-WhiteCapData/ollama-handoff",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "ollama-handoff",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "OLLAMA_URL",
+          "description": "Base URL of the Ollama server.",
+          "default": "http://localhost:11434",
+          "isRequired": false
+        },
+        {
+          "name": "OLLAMA_DEFAULT_MODEL",
+          "description": "Default model used for handoffs.",
+          "default": "qwen2.5-coder:14b",
+          "isRequired": false
+        },
+        {
+          "name": "OLLAMA_NUM_CTX",
+          "description": "Context window in tokens.",
+          "default": "32768",
+          "isRequired": false
+        },
+        {
+          "name": "OLLAMA_KEEP_ALIVE",
+          "description": "How long to keep the model resident in VRAM.",
+          "default": "30m",
+          "isRequired": false
+        },
+        {
+          "name": "OLLAMA_TIMEOUT_S",
+          "description": "Per-request timeout in seconds.",
+          "default": "600",
+          "isRequired": false
+        }
+      ]
+    }
+  ]
+}
