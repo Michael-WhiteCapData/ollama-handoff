@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.Michael-WhiteCapData/ollama-handoff",
-  "description": "Offload cheap work from your cloud LLM agent to a local Ollama model — summaries, drafts, extractions, first-pass reviews — at zero cloud cost.",
+  "description": "Offload cheap work from your AI agent to a local Ollama model, at zero cloud cost.",
   "repository": {
     "url": "https://github.com/Michael-WhiteCapData/ollama-handoff",
     "source": "github"
