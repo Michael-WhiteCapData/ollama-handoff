@@ -61,6 +61,19 @@ claude mcp add ollama-handoff -- uvx ollama-handoff
 }
 ```
 
+## Run with Docker
+
+A [`Dockerfile`](Dockerfile) is included. The server speaks MCP over stdio, so run it
+interactively (`-i`) and point it at your Ollama instance:
+
+```bash
+docker build -t ollama-handoff .
+docker run --rm -i -e OLLAMA_URL=http://host.docker.internal:11434 ollama-handoff
+```
+
+On native Linux (no Docker Desktop), use `--network=host` with
+`OLLAMA_URL=http://localhost:11434`.
+
 ## Tools
 
 | Tool | What it does | When the agent should reach for it |
