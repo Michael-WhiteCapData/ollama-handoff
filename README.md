@@ -34,7 +34,7 @@ These examples select `llama3.1:8b`. You can substitute another installed model.
 For Claude Code:
 
 ```sh
-claude mcp add --transport stdio --env OLLAMA_DEFAULT_MODEL=llama3.1:8b ollama-handoff -- uvx --with "mcp<2" ollama-handoff
+claude mcp add --transport stdio --env OLLAMA_DEFAULT_MODEL=llama3.1:8b ollama-handoff -- uvx ollama-handoff@0.1.3
 ```
 
 For a client that accepts an `mcpServers` JSON configuration:
@@ -44,7 +44,7 @@ For a client that accepts an `mcpServers` JSON configuration:
   "mcpServers": {
     "ollama-handoff": {
       "command": "uvx",
-      "args": ["--with", "mcp<2", "ollama-handoff"],
+      "args": ["ollama-handoff@0.1.3"],
       "env": {
         "OLLAMA_DEFAULT_MODEL": "llama3.1:8b"
       }
@@ -55,12 +55,12 @@ For a client that accepts an `mcpServers` JSON configuration:
 
 Add this entry using your client's MCP settings, then reconnect or restart it. If the client cannot find `uvx`, use the absolute path reported by `where.exe uvx` on Windows or `command -v uvx` on macOS and Linux.
 
-The explicit `mcp<2` constraint also fixes installation of the published 0.1.2 package. This server uses the MCP 1 `FastMCP` API, which MCP 2 removed. The source package now declares the constraint itself.
+Version 0.1.3 declares the MCP compatibility constraint automatically. This server uses the MCP 1 `FastMCP` API, which MCP 2 removed. If you remain on version 0.1.2, add `--with "mcp<2"` to the uvx command.
 
 For pip, install into a virtual environment and configure your client to run that environment's `ollama-handoff` executable:
 
 ```sh
-python -m pip install "ollama-handoff" "mcp<2"
+python -m pip install "ollama-handoff==0.1.3"
 ```
 
 ### 3. Verify the connection
@@ -127,7 +127,7 @@ The selected Ollama endpoint receives the text sent to these tools. A remote end
 
 | Symptom | What to check |
 | --- | --- |
-| `No module named mcp.server.fastmcp` | Use the `mcp<2` constraint above and restart the MCP client |
+| `No module named mcp.server.fastmcp` | Upgrade to version 0.1.3 and restart the MCP client |
 | `uvx` not found | Restart the client after installing uv, or configure the absolute executable path |
 | Connection refused | Confirm Ollama is running and `OLLAMA_URL` points to it |
 | Model not found | Match the full name from `ollama list`, or download the model with `ollama pull` |
@@ -160,4 +160,4 @@ Unit tests use `httpx.MockTransport` and do not need Ollama. The demo uses real 
 
 ## License
 
-[MIT](LICENSE) © Michael Tierney
+[MIT](LICENSE) Â© Michael Tierney
