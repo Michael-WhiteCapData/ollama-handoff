@@ -7,6 +7,7 @@ Thanks for your interest! This project stays intentionally small and focused, so
 ```bash
 git clone https://github.com/Michael-WhiteCapData/ollama-handoff
 cd ollama-handoff
+uv venv
 uv pip install -e ".[dev]"
 ```
 

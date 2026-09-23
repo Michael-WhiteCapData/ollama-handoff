@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### Fixed
+
+* Constrain MCP to version 1 because version 2 removed the FastMCP import used by this server.
+
+### Added
+
+* Runnable MCP demo and verified setup instructions with model selection and troubleshooting.
+
 ## [0.1.2] - 2026-06-22
 
 ### Added
